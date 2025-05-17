@@ -1,0 +1,1 @@
+url: mongodb+srv://admin22:<db_password>@cluster0.ubclkpw.mongodb.net/DevHub

@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 const app = express();
 
 // const connectDB = require('./config/db'); // Using commonJS : old way
@@ -8,6 +9,7 @@ import { authRoute } from "./controllers/UserControllers2.js";
 // import authroute from "./routes/authRoute.js";
 
 //Middleware
+app.use(cors())
 app.use(express.json()) //Send Data to DB
 app.use("/app",router)
 app.use("/auth",authRoute)

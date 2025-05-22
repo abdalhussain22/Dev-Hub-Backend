@@ -82,8 +82,7 @@ export const authRoute  = async (req, res) => {
     if (!password) return res.status(400).json({ wrn: "password Is Required" });
 
     const find_User = await User.findOne({ email });
-    if (!find_User)
-      return res.status(401).json({ wrn: "User Not Found or Invalid Email" });
+    if (!find_User) return res.status(401).json({ wrn: "User Not Found or Invalid Email" });
 
     
     const find_password = await bcrypt.compare(password, find_User.password);

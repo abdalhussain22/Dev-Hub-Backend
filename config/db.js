@@ -1,16 +1,16 @@
 import { connect } from 'mongoose';
+import * as dotenv from 'dotenv';
 
-const DB_URL = 'mongodb+srv://admin22:admin22@cluster0.ubclkpw.mongodb.net/DevHub';
+// Load environment variables from .env file
+dotenv.config();
 
-const connectDB = async()=>{
-    try{
-        if(true){
-            await connect(DB_URL);
-            console.log("Status Code: 200");
-        }
-    } catch (error){
-
-        console.log('error',error)
+const connectDB = async () => {
+    try {
+        await connect(process.env.MONGODB_URI);
+        console.log("Database connected successfully - Status Code: 200");
+    } catch (error) {
+        console.log('Database connection error:', error);
+        process.exit(1);
     }
 }
 

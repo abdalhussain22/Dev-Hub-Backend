@@ -1,1 +1,1 @@
-export const userAPI = "https://jsonplaceholder.typicode.com/users";
+export const userAPI = "https://jsonplaceholder.typicode.com/users"; // dummy api for user data

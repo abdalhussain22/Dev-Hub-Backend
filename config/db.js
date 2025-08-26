@@ -2,7 +2,7 @@ import { connect } from 'mongoose';
 import * as dotenv from 'dotenv';
 
 // Load environment variables from .env file
-dotenv.config();
+dotenv.config({quiet: true});
 
 const connectDB = async () => {
     try {

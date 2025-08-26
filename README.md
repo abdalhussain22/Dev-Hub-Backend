@@ -1,4 +1,4 @@
-# DevHub Backend API
+# DevHub Backend
 
 A robust REST API backend built with Node.js, Express, and MongoDB for the DevHub platform.
 

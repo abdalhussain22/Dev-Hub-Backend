@@ -27,11 +27,11 @@ A robust REST API backend built with Node.js, Express, and MongoDB for the DevHu
 - `POST /auth/login` - User login
 
 ### User Operations
-- `POST /app/postUser` - Create a new user
-- `GET /app/getUser` - Get all users
-- `GET /app/getSpecificData/:UserId` - Get specific user details
-- `PUT /app/updateUser/:UserId` - Update user information
-- `DELETE /app/deleteUser/:UserId` - Delete a user
+- `POST /api/v0/postUser` - Create a new user
+- `GET /api/v0/getAllUser` - Get all users
+- `GET /api/v0/getUser/:id` - Get specific user details
+- `PUT /api/v0/updateUser/:id` - Update user information
+- `DELETE /api/v0/deleteUser/:id` - Delete a user
 
 ## 🔧 Installation
 
@@ -56,7 +56,7 @@ A robust REST API backend built with Node.js, Express, and MongoDB for the DevHu
    node server.js
    ```
 
-The server will start running on http://localhost:3002
+The server will start running on http://localhost:PORT
 
 ## 🔒 Environment Variables
 
@@ -69,10 +69,9 @@ Make sure to set up the following environment variables in your `.env` file:
 ```
 Dev-Hub-Backend/
 ├── config/
-│   ├── api.js         # API configurations
 │   └── db.js          # Database connection setup
 ├── controllers/
-│   └── UserControllers2.js  # User operation controllers
+│   └── UserControllers.js  # User operation controllers
 ├── models/
 │   └── user.modal.js  # User data model
 ├── routes/

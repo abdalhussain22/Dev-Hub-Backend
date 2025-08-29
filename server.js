@@ -1,33 +1,24 @@
 import express from "express";
 import cors from 'cors';
 const app = express();
+import('dotenv').then(dotenv => dotenv.config({ quiet: true }));
 
 import connectDB from './config/db.js'; // modern way
 import router from "./routes/UserRouters.js";
-import { authRoute } from "./controllers/UserControllers2.js";
-import { authmiddleware } from "./routes/authMiddleware.js";
+import { authRoute } from "./controllers/UserControllers.js";
 
-//Middleware
+//Middlewares
 app.use(cors())//Cross Origin Resource Sharing
 app.use(express.json()) //Send Data to DB
-app.use("/app",router)// User Router
+app.use("/api/v0/user",router)// User Router
 app.use("/auth",authRoute)// Auth Router
-
-// Auth Middleware Route
-app.get("/authmiddleware",authmiddleware,(req,res)=>{
-    console.log("User ID: ",req.user.userId);
-    console.log("User Email: ",req.user.email);
-    console.log("User Username: ",req.user.userName);
-    console.log("access authorized");
-})
 
 //Base Route
 app.get('/',(req,res)=>{
-    res.send("Server is running...");
+    res.send("<h1>Server is running...</h1>");
 });
 
-// Creating server on port 3000
-app.listen(3002,()=>{
+app.listen(process.env.PORT,()=>{
     connectDB();
-    console.log("Server start at port: http://localhost:3002")
+    console.log(`Server start at port: http://localhost:${process.env.PORT}`)
 })
